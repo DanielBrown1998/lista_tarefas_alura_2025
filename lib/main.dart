@@ -10,98 +10,50 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Alura',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Container(
-                  height: 200,
-                  width: 200,
-                  color: Colors.red,
-                ),
-                Container(
-                  height: 150,
-                  width: 150,
-                  color: Colors.green,
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blue,
-                ),
-              ],
-            ),
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Container(
-                  height: 200,
-                  width: 200,
-                  color: Colors.white,
-                ),
-                Container(
-                  height: 150,
-                  width: 150,
-                  color: Colors.red,
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.black,
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.white,
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blueGrey,
-                ),
-                Container( 
-                  height: 100,
-                  width: 100,
-                  color: Colors.blue,
-                ),
-              ],
-            ),
-            Container(
-              alignment: Alignment.center,
-              width: 300,
-              height: 30,
-              child: Text(
-                "Codando FLutter",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Lista de Tarefas'),
+        ),
+        body: Container(
+          color: Colors.black,
+          child: Stack(
+            children: [
+              Container(
+                color: Colors.blue,
+                height: 140,
               ),
+              Container(
+                color: Colors.white,
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      color: Colors.black26,
+                      height: 100,
+                      width: 72,
+                    ),
+                    Text("Aprendendo Flutter"),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Icon(Icons.add),
+                    ),
+                  ],
+                  ),
               ),
-            ElevatedButton(
-              onPressed: () => print("Clicou"),
-              child: Text("Clique aqui"),
-            ),
-          ],
-        )
-      )     
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+          ),
+      ),
     );
   }
 }
