@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          leading: Icon(Icons.account_balance_outlined),
           title: const Text('Lista de Tarefas'),
-        ),
+            ),
         body: ListView(
           children: [
             Task('Math'),
@@ -84,13 +86,23 @@ class _TaskState extends State<Task> {
                             ),
                           ),
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              lv++;
-                            });
-                          },
-                          child: const Icon(Icons.arrow_drop_up_outlined),
+                        SizedBox(
+                          height: 65,
+                          width: 65,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                lv++;
+                              });
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(Icons.arrow_drop_up_outlined),
+                                const Text("up"),
+                              ],
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -98,15 +110,16 @@ class _TaskState extends State<Task> {
                   Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
+                              alignment: Alignment.centerLeft,
                               width: 200,
                               child: LinearProgressIndicator(
-                                color: Colors.white70,
+                                color: Colors.black54,
                                 value: lv/20,
-                                backgroundColor: Colors.black54,
+                                backgroundColor: Colors.white70,
                               ),
                             ),
                             Text(
