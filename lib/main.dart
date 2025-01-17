@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,14 +19,29 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           leading: Icon(Icons.account_balance_outlined),
           title: const Text('Lista de Tarefas'),
-            ),
+        ),
         body: ListView(
           children: [
-            Task('Math'),
-            Task("Dart"),
-            Task("FLutter"),
-            Task("Python"),
-            Task("Docker"),
+            Task(
+                'Math',
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                4),
+            Task(
+                "Dart",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                3),
+            Task(
+                "FLutter",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                4),
+            Task(
+                "Python",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                3),
+            Task(
+                "Docker",
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                4),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -41,7 +55,9 @@ class MyApp extends StatelessWidget {
 
 class Task extends StatefulWidget {
   final String text;
-  const Task(this.text, {super.key});
+  final String pictureUrl;
+  final int dificulty;
+  const Task(this.text, this.pictureUrl, this.dificulty, {super.key});
 
   @override
   State<Task> createState() => _TaskState();
@@ -74,16 +90,67 @@ class _TaskState extends State<Task> {
                           color: Colors.black26,
                           height: 100,
                           width: 72,
+                          child: Image.network(
+                            widget.pictureUrl,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 200,
-                          alignment: Alignment.center,
-                          child: Text(
-                            widget.text,
-                            style: TextStyle(
-                              fontSize: 24,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                widget.text,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    widget.dificulty >= 1
+                                        ? Icons.star
+                                        : Icons.star_border,
+                                    size: 16,
+                                    color: Colors.blue,
+                                  ),
+                                  Icon(
+                                    widget.dificulty >= 2
+                                        ? Icons.star
+                                        : Icons.star_border,
+                                    size: 16,
+                                    color: Colors.blue,
+                                  ),
+                                  Icon(
+                                    widget.dificulty >= 3
+                                        ? Icons.star
+                                        : Icons.star_border,
+                                    size: 16,
+                                    color: Colors.blue,
+                                  ),
+                                  Icon(
+                                    widget.dificulty >= 4
+                                        ? Icons.star
+                                        : Icons.star_border,
+                                    size: 16,
+                                    color: Colors.blue,
+                                  ),
+                                  Icon(
+                                    widget.dificulty >= 5
+                                        ? Icons.star
+                                        : Icons.star_border,
+                                    size: 16,
+                                    color: Colors.blue,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(
@@ -110,29 +177,28 @@ class _TaskState extends State<Task> {
                   Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              width: 200,
-                              child: LinearProgressIndicator(
-                                color: Colors.black54,
-                                value: lv/20,
-                                backgroundColor: Colors.white70,
-                              ),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            width: 200,
+                            child: LinearProgressIndicator(
+                              color: Colors.black54,
+                              value: lv / (5 * (widget.dificulty + 1)),
+                              backgroundColor: Colors.white70,
                             ),
-                            Text(
-                              "Nível: $lv",
-                              textAlign: TextAlign.right,
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.white70,
-                              ),
+                          ),
+                          Text(
+                            "Nível: $lv",
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white70,
                             ),
-                          ],
-                        )
-                      ),
+                          ),
+                        ],
+                      )),
                 ],
               )
             ],
