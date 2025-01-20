@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lista_tarefas_alura_2025/task.dart';
+import 'package:lista_tarefas_alura_2025/components/my_app/task.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});  
@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     Task("Docker",
         "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 4),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

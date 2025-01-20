@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lista_tarefas_alura_2025/dificulty.dart';
+import 'package:lista_tarefas_alura_2025/components/my_app/dificulty.dart';
 
 class Content extends StatefulWidget {
   final String text;
