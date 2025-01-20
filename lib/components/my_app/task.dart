@@ -4,9 +4,9 @@ import 'package:lista_tarefas_alura_2025/components/my_app/content.dart';
 
 class Task extends StatelessWidget {
   final String text;
-  final String pictureUrl;
+  final String namePicture;
   final int dificulty;
-  const Task(this.text, this.pictureUrl, this.dificulty, {super.key});
+  const Task(this.text, this.dificulty, {super.key, this.namePicture="beija_flor_flutter.png"});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class Task extends StatelessWidget {
                   color: Colors.blue,
                 ),
               ),
-              Content(text, dificulty, pictureUrl: pictureUrl)
+              Content(text, dificulty, namePicture: namePicture)
             ],
           ),
         ));

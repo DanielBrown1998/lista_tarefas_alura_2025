@@ -3,9 +3,10 @@ import 'package:lista_tarefas_alura_2025/components/my_app/dificulty.dart';
 
 class Content extends StatefulWidget {
   final String text;
-  final String pictureUrl;
+  final String namePicture;
   final int dificulty;
-  const Content(this.text, this.dificulty, {this.pictureUrl = '', super.key});
+  const Content(this.text, this.dificulty,
+      {required this.namePicture, super.key});
 
   @override
   State<Content> createState() => _ContentState();
@@ -31,8 +32,8 @@ class _ContentState extends State<Content> {
                 ),
                 height: 100,
                 width: 72,
-                child: Image.network(
-                  widget.pictureUrl,
+                child: Image.asset(
+                  "assets/images/${widget.namePicture}",
                   fit: BoxFit.cover,
                 ),
               ),

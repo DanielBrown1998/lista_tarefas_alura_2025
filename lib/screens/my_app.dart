@@ -2,28 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:lista_tarefas_alura_2025/components/my_app/task.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});  
+  const MyApp({super.key});
   @override
   State<MyApp> createState() => _MyAppState();
 }
-
 
 class _MyAppState extends State<MyApp> {
   bool opacidade = true;
   String titleMaterial = "Flutter Alura";
   String titleAppbar = "Lista de Tarefas";
 
-  List<Task> tarefas = [
-    Task('Math',
-        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 4),
-    Task("Dart",
-        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 3),
-    Task("FLutter",
-        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 4),
-    Task("Python",
-        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 3),
-    Task("Docker",
-        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 4),
+  List<Widget> tarefas = [
+    Task('Math', 4),
+    Task("Dart", 3),
+    Task("FLutter", 4),
+    Task("Python", 3),
+    Task("Docker", 4),
   ];
 
   @override
@@ -43,7 +37,12 @@ class _MyAppState extends State<MyApp> {
           opacity: opacidade ? 1 : .025,
           duration: Duration(milliseconds: 300),
           child: ListView(
-            children: tarefas,
+            children: tarefas +
+                [
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
           ),
         ),
         floatingActionButton: FloatingActionButton(

@@ -11,7 +11,7 @@ class Dificulty extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisSize: MainAxisSize.max,
-      children: [
+      children: <Icon>[
         Icon(
           dificulty >= 1 ? Icons.star : Icons.star_border,
           size: 16,
