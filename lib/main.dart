@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool opacidade = true;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,33 +26,41 @@ class MyApp extends StatelessWidget {
           leading: Icon(Icons.account_balance_outlined),
           title: const Text('Lista de Tarefas'),
         ),
-        body: ListView(
-          children: [
-            Task(
-                'Math',
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                4),
-            Task(
-                "Dart",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                3),
-            Task(
-                "FLutter",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                4),
-            Task(
-                "Python",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                3),
-            Task(
-                "Docker",
-                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                4),
-          ],
+        body: AnimatedOpacity(
+          opacity: opacidade ? 1 : .025,
+          duration: Duration(milliseconds: 300),
+          child: ListView(
+            children: [
+              Task(
+                  'Math',
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  4),
+              Task(
+                  "Dart",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  3),
+              Task(
+                  "FLutter",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  4),
+              Task(
+                  "Python",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  3),
+              Task(
+                  "Docker",
+                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                  4),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
+          onPressed: () {
+            setState(() {
+              opacidade = !opacidade;
+            });
+          },
+          child: const Icon(Icons.remove_red_eye),
         ),
       ),
     );
@@ -70,12 +84,15 @@ class _TaskState extends State<Task> {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          color: Colors.black,
+          color: Colors.white,
           child: Stack(
             children: [
               Container(
-                color: Colors.blue,
                 height: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Colors.blue,
+                ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -87,7 +104,11 @@ class _TaskState extends State<Task> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          color: Colors.black26,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius:
+                                BorderRadius.only(topLeft: Radius.circular(4)),
+                          ),
                           height: 100,
                           width: 72,
                           child: Image.network(
