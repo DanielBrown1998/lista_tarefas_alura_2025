@@ -13,6 +13,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool opacidade = true;
+  List<Task> tarefas = [
+    Task('Math',
+        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 4),
+    Task("Dart",
+        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 3),
+    Task("FLutter",
+        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 4),
+    Task("Python",
+        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 3),
+    Task("Docker",
+        "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large", 4),
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,28 +42,7 @@ class _MyAppState extends State<MyApp> {
           opacity: opacidade ? 1 : .025,
           duration: Duration(milliseconds: 300),
           child: ListView(
-            children: [
-              Task(
-                  'Math',
-                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                  4),
-              Task(
-                  "Dart",
-                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                  3),
-              Task(
-                  "FLutter",
-                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                  4),
-              Task(
-                  "Python",
-                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                  3),
-              Task(
-                  "Docker",
-                  "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
-                  4),
-            ],
+            children: tarefas,
           ),
         ),
         floatingActionButton: FloatingActionButton(
