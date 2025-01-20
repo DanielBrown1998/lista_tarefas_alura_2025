@@ -5,7 +5,9 @@ class Content extends StatefulWidget {
   final String text;
   final String namePicture;
   final int dificulty;
-  const Content(this.text, this.dificulty,
+  Color color_background = Colors.white70;
+  Color color_line = Colors.black54;
+  Content(this.text, this.dificulty,
       {required this.namePicture, super.key});
 
   @override
@@ -85,9 +87,9 @@ class _ContentState extends State<Content> {
                   alignment: Alignment.centerLeft,
                   width: 200,
                   child: LinearProgressIndicator(
-                    color: Colors.black54,
+                    color: widget.color_line,
                     value: lv / (5 * (widget.dificulty + 1)),
-                    backgroundColor: Colors.white70,
+                    backgroundColor: widget.color_background,
                   ),
                 ),
                 Text(
@@ -95,7 +97,7 @@ class _ContentState extends State<Content> {
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.white70,
+                    color: widget.color_background,
                   ),
                 ),
               ],
