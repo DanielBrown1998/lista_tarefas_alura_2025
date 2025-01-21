@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:lista_tarefas_alura_2025/components/my_app/task.dart';
+import 'package:lista_tarefas_alura_2025/components/principal/task.dart';
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+
+class Principal extends StatefulWidget {
+  const Principal({super.key});
+
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Principal> createState() => _PrincipalState();
 }
 
-class _MyAppState extends State<MyApp> {
-  bool opacidade = true;
-  String titleMaterial = "Flutter Alura";
-  String titleAppbar = "Lista de Tarefas";
-
+class _PrincipalState extends State<Principal> {
+  
   List<Widget> tarefas = [
     Task('Math', 4),
     Task("Dart", 3),
@@ -20,15 +19,14 @@ class _MyAppState extends State<MyApp> {
     Task("Docker", 4),
   ];
 
+  bool opacidade = true;
+
+
+  String titleAppbar = "Lista de Tarefas";
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: titleMaterial,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           leading: Icon(Icons.account_balance_outlined),
           title: Text(titleAppbar),
@@ -53,7 +51,9 @@ class _MyAppState extends State<MyApp> {
           },
           child: const Icon(Icons.remove_red_eye),
         ),
-      ),
-    );
+      );
   }
 }
+
+
+  

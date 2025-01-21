@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:lista_tarefas_alura_2025/components/my_app/content.dart';
+import 'package:lista_tarefas_alura_2025/components/principal/content.dart';
 
 class Task extends StatelessWidget {
   final String text;
