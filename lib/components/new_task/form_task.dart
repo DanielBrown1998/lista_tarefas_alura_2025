@@ -21,6 +21,7 @@ class _FormTaskState extends State<FormTask> {
       spacing: 25,
       children: [
         TextFormField(
+          keyboardType: TextInputType.text,
           controller: nameController,
           textAlign: TextAlign.center,
           decoration: InputDecoration(
@@ -38,6 +39,7 @@ class _FormTaskState extends State<FormTask> {
           ),
         ),
         TextFormField(
+          keyboardType: TextInputType.number,
           controller: dificultyController,
           textAlign: TextAlign.center,
           decoration: InputDecoration(
@@ -58,6 +60,7 @@ class _FormTaskState extends State<FormTask> {
           onChanged: (text) {
             setState(() {});
           },
+          keyboardType: TextInputType.url,
           controller: imageController,
           textAlign: TextAlign.center,
           decoration: InputDecoration(
@@ -66,7 +69,7 @@ class _FormTaskState extends State<FormTask> {
               color: Colors.black,
               fontSize: 20,
             ),
-            hintText: "Digite o nome: (exemplo.png)",
+            hintText: "Digite a url da imagem",
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
             ),
