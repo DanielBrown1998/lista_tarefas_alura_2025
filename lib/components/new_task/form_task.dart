@@ -25,7 +25,7 @@ class _FormTaskState extends State<FormTask> {
         children: [
           TextFormField(
             validator: (String? value) {
-              if (value == null || value.isEmpty){
+              if (value == null || value.isEmpty) {
                 return "Digite o nome da tarefa";
               }
               return null;
@@ -49,13 +49,11 @@ class _FormTaskState extends State<FormTask> {
           ),
           TextFormField(
             validator: (String? value) {
-              if (value == null || value.isEmpty){
+              if (value == null || value.isEmpty) {
                 return "Digite a dificuldade da tarefa";
-              }
-              else if (int.tryParse(value) == null){
+              } else if (int.tryParse(value) == null) {
                 return "Digite um número inteiro";
-              }
-              else if (int.tryParse(value)! < 1 || int.tryParse(value)! > 5){
+              } else if (int.tryParse(value)! < 1 || int.tryParse(value)! > 5) {
                 return "Digite um número entre 1 e 5";
               }
               return null;
@@ -80,12 +78,6 @@ class _FormTaskState extends State<FormTask> {
           TextFormField(
             onChanged: (text) {
               setState(() {});
-            },
-            validator: (value){
-              if (value == null || value.isEmpty){
-                return "Digite a url da imagem";
-              }
-              return null;
             },
             keyboardType: TextInputType.url,
             controller: imageController,
@@ -119,8 +111,8 @@ class _FormTaskState extends State<FormTask> {
               borderRadius: BorderRadius.circular(8),
               child: Image.network(
                 imageController.text,
-                errorBuilder:
-                    (BuildContext context, Object error, StackTrace? stackTrace) {
+                errorBuilder: (BuildContext context, Object error,
+                    StackTrace? stackTrace) {
                   return Image.asset(
                     "assets/images/beija_flor_flutter.png",
                     fit: BoxFit.cover,
@@ -132,13 +124,20 @@ class _FormTaskState extends State<FormTask> {
           ),
           ElevatedButton(
             onPressed: () {
-              if (!_formKey.currentState!.validate()){
+              if (!_formKey.currentState!.validate()) {
                 return;
               }
               final String name = nameController.text;
               final int dificulty = int.parse(dificultyController.text);
               final String image = imageController.text;
-      
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text(
+                    "Tarefa adicionada!",
+                  ),
+                ),
+              );
             },
             child: Text("Adicionar"),
           ),
