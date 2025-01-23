@@ -14,8 +14,8 @@ class Content extends StatefulWidget {
 
 class _ContentState extends State<Content> {
   int lv = 0;
-  Color colorBackgroundDefault = Colors.blueGrey;
-  Color colorLine = Colors.white;
+  Color colorBackgroundDefault = Colors.deepPurple.shade50;
+  Color colorLine = Colors.black;
 
   @override
   Widget build(BuildContext context) {
@@ -81,22 +81,21 @@ class _ContentState extends State<Content> {
                     setState(() {
                       double lineValue = lv / (5 * (widget.dificulty + 1));
                       lv++;
-                      if (lineValue < 0.15) {
-                        colorBackgroundDefault = Colors.red;
-                      } else if (0.15 >= lineValue || lineValue < 0.25) {
-                        colorBackgroundDefault = Colors.orange;
+                      if (0.15 >= lineValue || lineValue < 0.25) {
+                        colorBackgroundDefault = Colors.deepPurple.shade100;
+                        colorLine = Colors.black87;
                       } else if (0.25 >= lineValue || lineValue < 0.45) {
-                        colorBackgroundDefault = Colors.yellow;
-                        colorLine = Colors.black;
+                        colorBackgroundDefault = Colors.deepPurple.shade200;
+                        colorLine = Colors.black54;
                       } else if (0.45 >= lineValue || lineValue < 0.65) {
-                        colorBackgroundDefault = Colors.lightGreen;
-                        colorLine = Colors.black;
+                        colorBackgroundDefault = Colors.deepPurple.shade300;
+                        colorLine = Colors.white54;
                       } else if (0.65 >= lineValue || lineValue < 0.85) {
-                        colorBackgroundDefault = Colors.green;
-                        colorLine = Colors.white;
+                        colorBackgroundDefault = Colors.deepPurple.shade400;
+                        colorLine = Colors.white60;
                       } else if (0.85 >= lineValue || lineValue < 1) {
-                        colorBackgroundDefault = Colors.blue;
-                        colorLine = Colors.white;
+                        colorBackgroundDefault = Colors.deepPurple.shade500;
+                        colorLine = Colors.white70;
                       } else if (lineValue >= 1) {
                         colorBackgroundDefault = Colors.deepPurple;
                         colorLine = Colors.white;
