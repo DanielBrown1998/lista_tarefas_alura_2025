@@ -61,6 +61,16 @@ class _ContentState extends State<Content> {
                 height: 65,
                 width: 65,
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white70,
+                    shape: CircleBorder(
+                      side: BorderSide(
+                        color: Colors.black,
+                        width: 2,
+                      ),
+                    ),
+                  ),
                   onPressed: () {
                     setState(() {
                       double lineValue = lv / (5 * (widget.dificulty + 1));
@@ -78,8 +88,11 @@ class _ContentState extends State<Content> {
                       } else if (0.65 >= lineValue || lineValue < 0.85) {
                         colorBackgroundDefault = Colors.green;
                         colorLine = Colors.white;
-                      } else {
+                      } else if (0.85 >= lineValue || lineValue < 1) {
                         colorBackgroundDefault = Colors.blue;
+                        colorLine = Colors.white;
+                      } else if (lineValue >= 1) {
+                        colorBackgroundDefault = Colors.deepPurple;
                         colorLine = Colors.white;
                       }
                     });
@@ -87,7 +100,10 @@ class _ContentState extends State<Content> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.arrow_drop_up_outlined),
+                      const Icon(
+                        Icons.arrow_drop_up_outlined,
+                        color: Colors.white70,
+                      ),
                       const Text("up"),
                     ],
                   ),

@@ -13,6 +13,8 @@ class _FormScreenState extends State<FormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white70,
         title: Text('Nova Tarefa'),
       ),
       body: Center(

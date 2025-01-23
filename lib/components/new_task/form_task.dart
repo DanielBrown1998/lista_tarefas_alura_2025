@@ -123,13 +123,22 @@ class _FormTaskState extends State<FormTask> {
             ),
           ),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepPurple,
+              foregroundColor: Colors.white70,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
             onPressed: () {
               if (!_formKey.currentState!.validate()) {
                 return;
               }
-              final String name = nameController.text;
-              final int dificulty = int.parse(dificultyController.text);
-              final String image = imageController.text;
+              //final String name = nameController.text;
+              //final int dificulty = int.parse(dificultyController.text);
+              //final String image = imageController.text;
+
+              Navigator.pop(context);
 
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
@@ -138,6 +147,7 @@ class _FormTaskState extends State<FormTask> {
                   ),
                 ),
               );
+              nameController.clear();
             },
             child: Text("Adicionar"),
           ),
