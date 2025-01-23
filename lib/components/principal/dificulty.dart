@@ -15,27 +15,27 @@ class Dificulty extends StatelessWidget {
         Icon(
           dificulty >= 1 ? Icons.star : Icons.star_border,
           size: 16,
-          color: Colors.blue,
+          color: Colors.deepPurple.shade200,
         ),
         Icon(
           dificulty >= 2 ? Icons.star : Icons.star_border,
           size: 16,
-          color: Colors.blue,
+          color: Colors.deepPurple.shade300,
         ),
         Icon(
           dificulty >= 3 ? Icons.star : Icons.star_border,
           size: 16,
-          color: Colors.blue,
+          color: Colors.deepPurple.shade400,
         ),
         Icon(
           dificulty >= 4 ? Icons.star : Icons.star_border,
           size: 16,
-          color: Colors.blue,
+          color: Colors.deepPurple.shade500,
         ),
         Icon(
           dificulty >= 5 ? Icons.star : Icons.star_border,
           size: 16,
-          color: Colors.blue,
+          color: Colors.deepPurple,
         ),
       ],
     );
