@@ -134,6 +134,7 @@ class _FormTaskState extends State<FormTask> {
               if (!_formKey.currentState!.validate()) {
                 return;
               }
+
               //final String name = nameController.text;
               //final int dificulty = int.parse(dificultyController.text);
               //final String image = imageController.text;

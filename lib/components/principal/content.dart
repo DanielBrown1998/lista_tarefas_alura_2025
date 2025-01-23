@@ -23,7 +23,13 @@ class _ContentState extends State<Content> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          color: Colors.white,
+          decoration: BoxDecoration(
+            color: Colors.white70,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(8),
+              topRight: Radius.circular(8),
+            ),
+          ),
           height: 100,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,7 +37,7 @@ class _ContentState extends State<Content> {
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(4)),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(8)),
                 ),
                 height: 100,
                 width: 72,
@@ -58,8 +64,8 @@ class _ContentState extends State<Content> {
                 ),
               ),
               SizedBox(
-                height: 65,
-                width: 65,
+                height: 48,
+                width: 64,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurple,

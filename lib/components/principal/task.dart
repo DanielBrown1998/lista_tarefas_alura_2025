@@ -6,21 +6,32 @@ class Task extends StatelessWidget {
   final String text;
   final String namePicture;
   final int dificulty;
-  const Task(this.text, this.dificulty, {super.key, this.namePicture="beija_flor_flutter.png"});
+  const Task(this.text, this.dificulty,
+      {super.key, this.namePicture = "beija_flor_flutter.png"});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          color: Colors.white,
+          decoration: BoxDecoration(
+            color: Colors.white70,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade700,
+                spreadRadius: 2,
+                blurRadius: 7,
+                offset: const Offset(0, 3),
+              ),
+            ],
+            borderRadius: BorderRadius.circular(8),
+          ),
           child: Stack(
             children: [
               Container(
                 height: 140,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
               Content(text, dificulty, namePicture: namePicture)

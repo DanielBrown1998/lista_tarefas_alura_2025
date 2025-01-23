@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
       title: titleMaterial,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.deepPurple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
       initialRoute: '/',
