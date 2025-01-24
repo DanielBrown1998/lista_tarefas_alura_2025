@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:lista_tarefas_alura_2025/main.dart';
-import 'package:lista_tarefas_alura_2025/screens/principal.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

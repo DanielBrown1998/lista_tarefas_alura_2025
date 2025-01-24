@@ -4,8 +4,9 @@ import 'package:lista_tarefas_alura_2025/components/principal/dificulty.dart';
 class Content extends StatefulWidget {
   final String text;
   final String namePicture;
+  final String urlPicture;
   final int dificulty;
-  const Content(this.text, this.dificulty,
+  const Content(this.text, this.urlPicture, this.dificulty,
       {required this.namePicture, super.key});
 
   @override
@@ -41,9 +42,15 @@ class _ContentState extends State<Content> {
                 ),
                 height: 100,
                 width: 72,
-                child: Image.asset(
-                  "assets/images/${widget.namePicture}",
+                child: Image.network(
+                  widget.urlPicture,
                   fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      "assets/images/${widget.namePicture}",
+                      fit: BoxFit.cover,
+                    );
+                  },
                 ),
               ),
               SizedBox(

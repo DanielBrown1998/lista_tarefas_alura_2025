@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lista_tarefas_alura_2025/screens/new_task.dart';
+import 'package:lista_tarefas_alura_2025/data/task_inherited.dart';
 import 'package:lista_tarefas_alura_2025/screens/principal.dart';
 
 void main() {
@@ -20,11 +20,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const Principal(),
-        '/new_task': (context) => const FormScreen(),
-      },
+      home: TaskInherited(child: Principal()),
     );
   }
 }

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lista_tarefas_alura_2025/components/new_task/form_task.dart';
 
-class FormScreen extends StatefulWidget {
-  const FormScreen({super.key});
+class FormScreen extends StatelessWidget {
+  const FormScreen({super.key, required this.taskContext});
 
-  @override
-  State<FormScreen> createState() => _FormScreenState();
-}
+  final BuildContext taskContext;
 
-class _FormScreenState extends State<FormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +29,7 @@ class _FormScreenState extends State<FormScreen> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: FormTask(),
+              child: FormTask(taskContext: taskContext),
             ),
           ),
         ),

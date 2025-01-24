@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lista_tarefas_alura_2025/data/task_inherited.dart';
 
 class FormTask extends StatefulWidget {
-  const FormTask({super.key});
+  const FormTask({super.key, required this.taskContext});
+
+  final BuildContext taskContext;
 
   @override
   State<FormTask> createState() => _FormTaskState();
@@ -135,9 +138,12 @@ class _FormTaskState extends State<FormTask> {
                 return;
               }
 
-              //final String name = nameController.text;
-              //final int dificulty = int.parse(dificultyController.text);
-              //final String image = imageController.text;
+              final String name = nameController.text;
+              final int dificulty = int.parse(dificultyController.text);
+              final String image = imageController.text;
+
+              TaskInherited.of(widget.taskContext)!
+                  .newTask(name, image, dificulty);
 
               Navigator.pop(context);
 
@@ -148,7 +154,6 @@ class _FormTaskState extends State<FormTask> {
                   ),
                 ),
               );
-              nameController.clear();
             },
             child: Text("Adicionar"),
           ),
