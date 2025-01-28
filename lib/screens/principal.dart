@@ -20,7 +20,10 @@ class _PrincipalState extends State<Principal> {
         leading: Icon(Icons.account_balance_outlined),
         title: Text(titleAppbar),
       ),
-      body: ListView(children: TaskInherited.of(context)!.taskList),
+      body: ListView(
+        padding: EdgeInsets.only(top: 8, bottom: 80),
+        children: TaskInherited.of(context)!.taskList,
+      ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -28,8 +31,10 @@ class _PrincipalState extends State<Principal> {
             backgroundColor: Colors.deepPurple,
             foregroundColor: Colors.white70,
             onPressed: () {
-              Navigator.push(context, 
-                MaterialPageRoute(builder: (newContext) => FormScreen(taskContext: context)),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (newContext) => FormScreen(taskContext: context)),
               );
             },
             child: const Icon(Icons.add),
